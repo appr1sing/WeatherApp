@@ -15,6 +15,7 @@ struct WeatherInfo {
     let maxF : Int
     let minC : Int
     let maxC : Int
+    let icon : String
     
     init(dict: JSON) {
         self.date = dict["dateTimeISO"] as? String ?? ""
@@ -22,6 +23,7 @@ struct WeatherInfo {
         self.maxF = dict["maxTempF"] as? Int ?? 0
         self.minC = dict["minTempC"] as? Int ?? 0
         self.maxC = dict["maxTempC"] as? Int ?? 0
+        self.icon = dict["icon"] as? String ?? ""
     }
     
 }

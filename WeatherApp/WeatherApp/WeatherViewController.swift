@@ -46,6 +46,7 @@ extension WeatherViewController: UICollectionViewDataSource {
         cell.dateLabel.text = dateToString(data[indexPath.row].date)
         cell.minTempLabel.text = String(data[indexPath.row].minF) + "˚"
         cell.maxTempLabel.text = String(data[indexPath.row].maxF) + "˚"
+        cell.imageView.image = UIImage(named: data[indexPath.row].icon)
         return cell
     }
     

@@ -22,6 +22,18 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         return date
     }()
     
+    var highLabel: UILabel = {
+        let high = UILabel()
+        high.translatesAutoresizingMaskIntoConstraints = false
+        return high
+    }()
+    
+    var lowLabel : UILabel = {
+        let low = UILabel()
+        low.translatesAutoresizingMaskIntoConstraints = false
+        return low
+    }()
+    
     var minTempLabel : UILabel = {
         let min = UILabel()
         min.translatesAutoresizingMaskIntoConstraints = false
@@ -32,6 +44,12 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         let max = UILabel()
         max.translatesAutoresizingMaskIntoConstraints = false
         return max
+    }()
+    
+    var imageView: UIImageView = {
+        let imgView = UIImageView()
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        return imgView
     }()
     
     override init(frame: CGRect) {
@@ -64,7 +82,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         dateLabel.widthAnchor.constraint(equalTo: backGround.widthAnchor, multiplier: 0.9).isActive = true
         dateLabel.heightAnchor.constraint(equalToConstant: 44).isActive = true
         dateLabel.centerXAnchor.constraint(equalTo: backGround.centerXAnchor).isActive = true
-        dateLabel.font = UIFont(name: "SFCompactDisplay-Light", size: 22)!
+        dateLabel.font = UIFont(name: "SFCompactDisplay-Semibold", size: 22)!
         dateLabel.textColor = .black
         dateLabel.text = "08-07-2018"
         
@@ -88,6 +106,33 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         minTempLabel.text = "89˚"
         minTempLabel.textAlignment = .right
         
+        contentView.addSubview(highLabel)
+        highLabel.bottomAnchor.constraint(equalTo: maxTempLabel.topAnchor, constant: 12).isActive = true
+        highLabel.widthAnchor.constraint(equalTo: backGround.widthAnchor, multiplier: 0.9).isActive = true
+        highLabel.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        highLabel.leftAnchor.constraint(equalTo: maxTempLabel.leftAnchor).isActive = true
+        highLabel.font = UIFont(name: "SFCompactDisplay-Semibold", size: 16)!
+        highLabel.textColor = .black
+        highLabel.text = "High"
+        highLabel.textAlignment = .left
+        
+        contentView.addSubview(lowLabel)
+        lowLabel.bottomAnchor.constraint(equalTo: minTempLabel.topAnchor, constant: 12).isActive = true
+        lowLabel.widthAnchor.constraint(equalTo: backGround.widthAnchor, multiplier: 0.9).isActive = true
+        lowLabel.rightAnchor.constraint(equalTo: minTempLabel.rightAnchor).isActive = true
+        lowLabel.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        lowLabel.font = UIFont(name: "SFCompactDisplay-Semibold", size: 16)!
+        lowLabel.textColor = .black
+        lowLabel.text = "Low"
+        lowLabel.textAlignment = .right
+        
+        contentView.addSubview(imageView)
+        imageView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: backGround.centerXAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalTo: backGround.heightAnchor, multiplier: 0.45).isActive = true
+        imageView.widthAnchor.constraint(equalTo: backGround.widthAnchor, multiplier: 0.6).isActive = true
+        imageView.backgroundColor = .white
+        imageView.contentMode = .center
         
     }
 }
