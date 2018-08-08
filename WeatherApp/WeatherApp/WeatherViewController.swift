@@ -15,6 +15,7 @@ class WeatherViewController: UIViewController {
     var collectionView: UICollectionView!
     var titleLabel: UILabel!
     var indicator : UIActivityIndicatorView!
+    var toggleSwitch : UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +45,8 @@ extension WeatherViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as! WeatherCollectionViewCell
         cell.dateLabel.text = dateToString(data[indexPath.row].date)
-        cell.minTempLabel.text = String(data[indexPath.row].minF) + "˚"
-        cell.maxTempLabel.text = String(data[indexPath.row].maxF) + "˚"
+        cell.minTempLabel.text = String(data[indexPath.row].minF) + "˚" + "F"
+        cell.maxTempLabel.text = String(data[indexPath.row].maxF) + "˚" + "F"
         cell.imageView.image = UIImage(named: data[indexPath.row].icon)
         return cell
     }
@@ -107,6 +108,20 @@ extension WeatherViewController {
         indicator.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         indicator.center = view.center
         view.addSubview(indicator)
+        
+        toggleSwitch = UIButton()
+        toggleSwitch.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(toggleSwitch)
+        toggleSwitch.heightAnchor.constraint(equalToConstant: 57).isActive = true
+        toggleSwitch.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3).isActive = true
+        toggleSwitch.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        toggleSwitch.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
+        toggleSwitch.setTitle("˚C / ˚F", for: .normal)
+        toggleSwitch.clipsToBounds = true
+        toggleSwitch.layer.cornerRadius = 14
+        toggleSwitch.layer.borderColor = UIColor.white.cgColor
+        toggleSwitch.layer.borderWidth = 1.5
+        
     }
     
 }
