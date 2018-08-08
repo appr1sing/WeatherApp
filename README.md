@@ -42,3 +42,8 @@ Add an interactive control to toggle between Farenheit and Celcius temperatures.
 Use your best judgement in designing the user interface. Here's a sample of what it might look like.
 
 Your submission will be evaluated on functionality, code quality, and style.
+
+*Screenshot of Weather App*
+
+<img width="376" alt="screen shot 2018-08-08 at 3 15 36 am" src="https://user-images.githubusercontent.com/26349300/43822451-233e2080-9aba-11e8-9e3f-110e09b1733a.png">
+
